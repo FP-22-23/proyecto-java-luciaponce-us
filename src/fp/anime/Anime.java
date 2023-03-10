@@ -1,12 +1,13 @@
 package fp.anime;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 import fp.common.Source;
 import fp.common.Studio;
 import fp.utiles.Checkers;
 
-public class Anime {
+public class Anime implements Comparable<Anime>{
 	
 	private Integer anime_id;
 	private String nombre;
@@ -19,6 +20,19 @@ public class Anime {
 	private Set<String> genero;
 	private Studio estudio;
 
+	/**
+	 * 
+	 * @param anime_id
+	 * @param nombre
+	 * @param episodios
+	 * @param origen
+	 * @param estreno
+	 * @param valoracion
+	 * @param seguidores
+	 * @param sinopsis
+	 * @param genero
+	 * @param estudio
+	 */
 	public Anime(Integer anime_id, String nombre, Integer episodios, Source origen, LocalDate estreno,
 			Double valoracion, Integer seguidores, String sinopsis, Set<String> genero, Studio estudio) {
 		
@@ -112,13 +126,32 @@ public class Anime {
 	public Double getPopularidad() {
 		return (getSeguidores()/1000)*getValoracion();
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
+	public int hashCode() {
+		return Objects.hash(anime_id, estreno, estudio, nombre, origen);
+	}
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Anime other = (Anime) obj;
+		return Objects.equals(anime_id, other.anime_id) && Objects.equals(estreno, other.estreno)
+				&& Objects.equals(estudio, other.estudio) && Objects.equals(nombre, other.nombre)
+				&& origen == other.origen;
+	}
+
+	public int compareTo(Anime a) {
+		int res = nombre.compareTo(a.getNombre());
+		if (res == 0) {
+			res = estreno.compareTo(a.getEstreno());
+		}
+		
+		return res;
+	}
+	
+	
 }

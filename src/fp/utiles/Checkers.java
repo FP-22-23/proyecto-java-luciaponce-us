@@ -4,7 +4,7 @@ public class Checkers {
 	
 	public static void checkVacio(String s) {
 		String no_spaces = s.replaceAll(" ", "");
-		if(no_spaces.equals("") || no_spaces.equals(null)) {
+		if(no_spaces.equals("") || no_spaces==null) {
 			throw new IllegalArgumentException(
 					"El nombre no puede estar vacío");
 		}
