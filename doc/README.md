@@ -13,19 +13,17 @@ Autora: Lucía Ponce
     
 ## Estructura del *dataset*
 
-El dataset original Anime Data se puede obtener de la URL (https://www.kaggle.com/datasets/mishraboi/anime-data). Originalmente tiene 55 columnas y cada fila contiene datos sobre un anime registrado en myanimelist.com. El dataset usado en este proyecto tiene 13 columnas. A continuación se describen las 13 columnas del dataset:
+El dataset original Anime Data se puede obtener de la URL (https://www.kaggle.com/datasets/mishraboi/anime-data). Originalmente tiene 55 columnas y cada fila contiene datos sobre un anime registrado en myanimelist.com. El dataset usado en este proyecto tiene 52 columnas, pues se eliminaron las columnas Yaoi, Yuri y Hentai.
+A continuación se describen las columnas del dataset:
 
-* **number**: de tipo entero, indica el índice del anime dentro del csv.
+* **csv_id**: de tipo entero, indica el índice del anime dentro del csv.
 * **anime_id**: de tipo entero, indica el id del anime dentro de la página myanimelist.
 * **anime_name**: de tipo cadena, contiene el nombre del anime.
 * **studio_id**: de tipo entero, indica el id del estudio que produjo el anime.
-* **episodes_total**: de tipo entero, es el número de episodios que tiene el anime.
-* **source_material**: de tipo enumerado, indica el recurso del que surgió el anime. Puede tomar los valores: 4-koma manga, Book, Card game, Digital manga, Game, Light novel, Manga, Music, Novel, Original, Other, Picture Book, Radio, Visual novel, Web manga o bien valores nulos(//podria asignarle Others en ese caso).
-
-// sin editar a partir de aquí
-* **black_rating**: de tipo entero, tiene el valor ELO del jugador de negras. 
-* **moves**: de tipo cadena, contiene una secuencia con los movimientos de la partida. Los movimientos están separados por espacios en blanco. Por ejemplo, ```d4 d5 c4 c6 cxd5 e6 dxe6 fxe6 Nf3 Bb4+ Nc3 Ba5 Bf4```.
-* **opening_name**: de tipo cadena, indica la salida y la defensa de la partida. Esto no se
-corresponde con el primer o segundo movimiento, sino que son las salidas y sus distintas variantes, por ejemplo, ```Queen's Pawn Game: Mason Attack```.
-* **fecha**: de tipo fecha. Indica la fecha en la que se jugó la partida.
-* **duracion**: de tipo entero. Indica la duración en minutos de la partida.
+* **episodes_total**: de tipo float, es el número de episodios que tiene el anime.
+* **source_material**: de tipo cadena, indica el recurso del que surgió el anime.
+* **air_date**: de tipo cadena, indica la fecha en la que el anime fue estrenado. Por ejemplo: ```Jan 25, 1996   Mar 2, 1985```
+* **overall_rating**: de tipo float, se trata de una valoración media de los espectadores con valores del 0 al 10.
+* **members**: de tipo entero, son los seguidores que tiene el anime.
+* **synopsis**: de tipo cadena, se trata de un breve resumen sobre el argumento del anime.
+* **number of tags**: de tipo entero, indica el número de etiquetas de género que tiene el anime.
