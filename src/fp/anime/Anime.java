@@ -140,7 +140,7 @@ public class Anime implements Comparable<Anime>{
 	public String toString() {
 		return "Anime [anime_id=" + anime_id + ", nombre=" + nombre + ", episodios=" + episodios + ", origen=" + origen
 				+ ", estreno=" + estreno + ", valoracion=" + valoracion + ", seguidores=" + seguidores + ", sinopsis="
-				+ sinopsis + ", genero=" + genero + ", estudio=" + estudio + ", getFormatoCorto()=" + getFormatoCorto()
+				+ sinopsis + ", genero=" + genero + ", estudio=" + estudio.toString() + ", getFormatoCorto()=" + getFormatoCorto()
 				+ ", getPopularidad()=" + getPopularidad() + "]";
 	}
 

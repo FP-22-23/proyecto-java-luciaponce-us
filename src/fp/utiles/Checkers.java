@@ -5,8 +5,13 @@ import java.time.LocalDate;
 public class Checkers {
 	
 	public static void checkVacio(String s) {
-		String no_spaces = s.replaceAll(" ", "");
-		if(no_spaces.equals("") || no_spaces==null) {
+		
+		if(s==null) {
+			throw new IllegalArgumentException(
+					"El nombre no puede ser nulo");
+		}
+		
+		if(s.replaceAll(" ", "").equals("")) {
 			throw new IllegalArgumentException(
 					"El nombre no puede estar vacío");
 		}

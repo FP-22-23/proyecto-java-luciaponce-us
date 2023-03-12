@@ -52,5 +52,11 @@ public class Studio {
 		Studio other = (Studio) obj;
 		return Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre);
 	}
+
+	public String toString() {
+		return "Studio [id=" + id + ", nombre=" + nombre + "]";
+	}
+	
+	
 	
 }
