@@ -27,44 +27,44 @@ A continuación se describen las columnas del dataset:
 * **members**: de tipo entero, son los seguidores que tiene el anime.
 * **synopsis**: de tipo cadena, se trata de un breve resumen sobre el argumento del anime.
 * **number of tags**: de tipo entero, indica el número de etiquetas de género que tiene el anime.
-    * **Action**: de tipo booleano, indica si el anime pertenece al género de acción.
-    * **Adventure**: de tipo booleano, indica si el anime pertenece al género de aventura.
-    * **Cars**: de tipo booleano, indica si el anime pertenece al género de coches.
-    * **Comedy**: de tipo booleano, indica si el anime pertenece al género de comedia.
-    * **Dementia**: de tipo booleano, indica si el anime pertenece al género de locura.
-    * **Demons**: de tipo booleano, indica si el anime pertenece al género de demonios.
-    * **Drama**: de tipo booleano, indica si el anime pertenece al género de drama.
-    * **Ecchi**: de tipo booleano, indica si el anime tiene un ligero contenido sexual.
-    * **Fantasy**: de tipo booleano, indica si el anime pertenece al género de fantasía.
-    * **Game**: de tipo booleano, indica si el anime pertenece al género de videojuegos.
-    * **Harem**: de tipo booleano, indica si el anime pertenece a un género en el que un hombre está rodeado de muchas mujeres.
-    * **Historical**: de tipo booleano, indica si el anime pertenece al género histórico.
-    * **Horror**: de tipo booleano, indica si el anime pertenece al género de horror.
-    * **Josei**: de tipo booleano, indica si el anime está dirigido a mujeres adultas.
-    * **Kids**: **: de tipo booleano, indica si el anime está dirigido a niños.
-    * **Magic**: de tipo booleano, indica si el anime pertenece al género de magia.
-    * **Martial_Arts**: de tipo booleano, indica si el anime pertenece al género de artes marciales.
-    * **Mecha**: de tipo booleano, indica si el anime pertenece al género de robots pilotados.
-    * **Military**: de tipo booleano, indica si el anime pertenece al género militar.
-    * **Music**: de tipo booleano, indica si el anime pertenece al género musical.
-    * **Mystery**: de tipo booleano, indica si el anime pertenece al género de misterio.
-    * **Parody**: de tipo booleano, indica si el anime es una parodia.
-    * **Police**: de tipo booleano, indica si el anime pertenece al género policial.
-    * **Psycological**: de tipo booleano, indica si el anime pertenece al género psicológico.
-    * **Romance**: de tipo booleano, indica si el anime pertenece al género de romance.
-    * **Samurai**: de tipo booleano, indica si el anime pertenece al género de samurais.
-    * **School**: de tipo booleano, indica si el anime pertenece al género escolar.
-    * **Sci-Fi**: de tipo booleano, indica si el anime pertenece al género excesivamente futurista.
-    * **Seinen**: de tipo booleano, indica si el anime está dirigido a hombres adultos.
-    * **Shoujo**: de tipo booleano, indica si el anime está dirigido a mujeres adolescentes.
-    * **Shoujo_Ai**: de tipo booleano, indica si el anime se centra en el amor entre chicas.
-    * **Slice_of_Life**: de tipo booleano, indica si el anime pertenece al género de recuentos de la vida.
-    * **Space**: de tipo booleano, indica si el anime pertenece al género del espacio.
-    * **Sports**: de tipo booleano, indica si el anime pertenece al género de deportes.
-    * **Super_Power**: de tipo booleano, indica si el anime pertenece al género de superpoderes.
-    * **Supernatural**: de tipo booleano, indica si el anime pertenece al género sobrenatural.
-    * **Thriller**: de tipo booleano, indica si el anime pertenece al género de terror.
-    * **Vampire**: de tipo booleano, indica si el anime pertenece al género de vampiros.
+    * **Action**: de tipo float, indica si el anime pertenece al género de acción.
+    * **Adventure**: de tipo float, indica si el anime pertenece al género de aventura.
+    * **Cars**: de tipo float, indica si el anime pertenece al género de coches.
+    * **Comedy**: de tipo float, indica si el anime pertenece al género de comedia.
+    * **Dementia**: de tipo float, indica si el anime pertenece al género de locura.
+    * **Demons**: de tipo float, indica si el anime pertenece al género de demonios.
+    * **Drama**: de tipo float, indica si el anime pertenece al género de drama.
+    * **Ecchi**: de tipo float, indica si el anime tiene un ligero contenido sexual.
+    * **Fantasy**: de tipo float, indica si el anime pertenece al género de fantasía.
+    * **Game**: de tipo float, indica si el anime pertenece al género de videojuegos.
+    * **Harem**: de tipo float, indica si el anime pertenece a un género en el que un hombre está rodeado de muchas mujeres.
+    * **Historical**: de tipo float, indica si el anime pertenece al género histórico.
+    * **Horror**: de tipo float, indica si el anime pertenece al género de horror.
+    * **Josei**: de tipo float, indica si el anime está dirigido a mujeres adultas.
+    * **Kids**: **: de tipo float, indica si el anime está dirigido a niños.
+    * **Magic**: de tipo float, indica si el anime pertenece al género de magia.
+    * **Martial_Arts**: de tipo float, indica si el anime pertenece al género de artes marciales.
+    * **Mecha**: de tipo float, indica si el anime pertenece al género de robots pilotados.
+    * **Military**: de tipo float, indica si el anime pertenece al género militar.
+    * **Music**: de tipo float, indica si el anime pertenece al género musical.
+    * **Mystery**: de tipo float, indica si el anime pertenece al género de misterio.
+    * **Parody**: de tipo float, indica si el anime es una parodia.
+    * **Police**: de tipo float, indica si el anime pertenece al género policial.
+    * **Psycological**: de tipo float, indica si el anime pertenece al género psicológico.
+    * **Romance**: de tipo float, indica si el anime pertenece al género de romance.
+    * **Samurai**: de tipo float, indica si el anime pertenece al género de samurais.
+    * **School**: de tipo float, indica si el anime pertenece al género escolar.
+    * **Sci-Fi**: de tipo float, indica si el anime pertenece al género excesivamente futurista.
+    * **Seinen**: de tipo float, indica si el anime está dirigido a hombres adultos.
+    * **Shoujo**: de tipo float, indica si el anime está dirigido a mujeres adolescentes.
+    * **Shoujo_Ai**: de tipo float, indica si el anime se centra en el amor entre chicas.
+    * **Slice_of_Life**: de tipo float, indica si el anime pertenece al género de recuentos de la vida.
+    * **Space**: de tipo float, indica si el anime pertenece al género del espacio.
+    * **Sports**: de tipo float, indica si el anime pertenece al género de deportes.
+    * **Super_Power**: de tipo float, indica si el anime pertenece al género de superpoderes.
+    * **Supernatural**: de tipo float, indica si el anime pertenece al género sobrenatural.
+    * **Thriller**: de tipo float, indica si el anime pertenece al género de terror.
+    * **Vampire**: de tipo float, indica si el anime pertenece al género de vampiros.
 * **studio_name**: se tipo cadena, indica el nombre del estudio que produjo el anime.
 
 ## Tipos implementados
