@@ -13,6 +13,7 @@ public class TestFactoriaAnimes {
 		System.out.println("\nTestLeerAnimes =============");
 		Animes animes = FactoriaAnimes.leerAnimes(fichero);
 		System.out.println("   Animes: "+ animes);
+		System.out.println("Animes de género Adventure:"+animes.getAnimesGenero("Adventure"));
 	}
 
 }

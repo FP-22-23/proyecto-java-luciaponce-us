@@ -157,13 +157,20 @@ public class FactoriaAnimes {
 		}
 	
 	private static Set<String> parseaGenero(List<String> generos){
-		
+		int i = 0;
+		List<String> gs = new ArrayList<String>(Arrays.asList("Action","Adventure","Cars","Comedy","Dementia","Demons","Drama","Ecchi","Fantasy","Game",
+				"Harem","Historical","Horror","Josei","Kids","Magic","Martial_Arts","Mecha","Military","Music","Mystery","Parody","Police","Psychological",
+				"Romance","Samurai","School","Sci-Fi","Seinen","Shoujo","Shoujo_Ai","Shounen","Shounen_Ai","Slice_of_Life","Space","Sports","Super_Power",
+				"Supernatural","Thriller","Vampire"));		
+
 		Set<String> res = new TreeSet<String>();
 		for (String genero : generos) {
+			
 			genero = genero.trim();
-			if (genero == "1.0") {
-				res.add(genero);
+			if (Double.valueOf(genero)==1.0) {
+				res.add(gs.get(i));
 			}
+		i++;
 		}
 		return res;
 	}
