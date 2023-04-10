@@ -19,7 +19,6 @@ public class FactoriaAnimes {
 	
 	public static Animes leerAnimes(String fichero) {
 		Animes res = null;
-		int i = 0;
 		try {
 			List<Anime>  animes=Files.lines(Paths.get(fichero))
 					.skip(1)
@@ -51,7 +50,7 @@ public class FactoriaAnimes {
 		ArrayList<String> lista = new ArrayList<String>(Arrays.asList(t));
 		List<String> sublista = lista.subList(10, 50);
 		Set<String> genero = parseaGenero(sublista);
-		System.out.println((csv_id*100)/999+"% parseado");
+		//System.out.println((csv_id*100)/999+"% parseado");
 		return new Anime(anime_id,nombre,episodios,origen,estreno,valoracion,seguidores,sinopsis,genero,estudio);
 	}
 	
@@ -161,7 +160,7 @@ public class FactoriaAnimes {
 		List<String> gs = new ArrayList<String>(Arrays.asList("Action","Adventure","Cars","Comedy","Dementia","Demons","Drama","Ecchi","Fantasy","Game",
 				"Harem","Historical","Horror","Josei","Kids","Magic","Martial_Arts","Mecha","Military","Music","Mystery","Parody","Police","Psychological",
 				"Romance","Samurai","School","Sci-Fi","Seinen","Shoujo","Shoujo_Ai","Shounen","Shounen_Ai","Slice_of_Life","Space","Sports","Super_Power",
-				"Supernatural","Thriller","Vampire"));		
+				"Supernatural","Thriller","Vampire"));
 
 		Set<String> res = new TreeSet<String>();
 		for (String genero : generos) {
