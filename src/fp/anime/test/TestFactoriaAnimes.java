@@ -2,6 +2,7 @@ package fp.anime.test;
 
 import fp.anime.Animes;
 import fp.anime.FactoriaAnimes;
+import fp.common.Source;
 
 public class TestFactoriaAnimes {
 	
@@ -13,7 +14,10 @@ public class TestFactoriaAnimes {
 		System.out.println("\nTestLeerAnimes =============");
 		Animes animes = FactoriaAnimes.leerAnimes(fichero);
 		System.out.println("   Animes: "+ animes);
-		System.out.println("Animes de género Adventure:"+animes.getAnimesGenero("Adventure"));
+		System.out.println("Animes de género Adventure:"+animes.getAnimesGenero("Vampire"));
+		System.out.println("Media de valoración de todos los animes: "+animes.mediaValoracionAnimes());
+		System.out.println("Animes originales:"+animes.getAnimesPorOrigen().get(Source.ORIGINAL));
+		System.out.println("Número de animes por estudio: "+animes.getNumeroAnimesPorEstudio());
 	}
 
 }

@@ -3,8 +3,13 @@ package fp.anime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+
+import fp.common.Source;
+import fp.common.Studio;
 
 public class Animes {
 	
@@ -98,6 +103,32 @@ public class Animes {
 			throw new IllegalArgumentException("El género debe ser uno de los siguientes:"+gs);
 		}
 		
+	}
+	
+	public Map<Source,List<Anime>> getAnimesPorOrigen(){
+		Map<Source,List<Anime>> res = new HashMap<Source,List<Anime>>();
+		for (Anime a : animes) {
+			if (res.containsKey(a.getOrigen())) {
+				res.get(a.getOrigen()).add(a);
+			}else {
+				List<Anime> animes = new ArrayList<Anime>();
+				res.put(a.getOrigen(),animes);
+				animes.add(a);
+			}
+		}
+		return res;
+	}
+	
+	public Map<Studio,Integer> getNumeroAnimesPorEstudio(){
+		Map<Studio,Integer> res = new HashMap<Studio,Integer>();
+		for (Anime a : animes) {
+			if (res.containsKey(a.getEstudio())) {
+				res.put(a.getEstudio(),res.get(a.getEstudio())+1);
+			}else{
+				res.put(a.getEstudio(), 1);
+			}
+		}
+		return res;
 	}
 
 }

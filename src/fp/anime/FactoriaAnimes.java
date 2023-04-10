@@ -39,9 +39,9 @@ public class FactoriaAnimes {
 		Integer csv_id = Integer.parseInt(t[0].trim());
 		Integer anime_id = Integer.parseInt(t[1].trim());
 		String nombre = t[2].trim();
-		Studio estudio = parseaEstudio(t[3].trim(),t[11].trim());
+		Studio estudio = parseaEstudio(t[3].trim(),t[51].trim());
 		Double ep = Double.parseDouble(t[4].trim());
-		Integer episodios = ep.intValue();// esto puede dar error
+		Integer episodios = ep.intValue();
 		Source origen = parseaOrigen(t[5].trim());
 		LocalDate estreno = parseaEstreno(t[6].trim());
 		Double valoracion = Double.parseDouble(t[7].trim());
