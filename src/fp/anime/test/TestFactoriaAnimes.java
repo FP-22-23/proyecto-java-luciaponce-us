@@ -14,7 +14,7 @@ public class TestFactoriaAnimes {
 	private static void testLeerAnimes(String fichero) {
 		System.out.println("\nTestLeerAnimes =============");
 		AnimesImpl animes = FactoriaAnimesImpl.leerAnimes(fichero);
-		//System.out.println("   Animes: "+ animes);
+		System.out.println("   Animes: "+ animes);
 		//String genero = "Adventure";
 		//System.out.println("Animes de género "+genero+":"+animes.getAnimesGenero(genero));
 		//System.out.println("Media de valoración de todos los animes: "+animes.mediaValoracionAnimes());

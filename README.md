@@ -41,7 +41,7 @@ A continuación se describen las columnas del dataset:
     * **Historical**: de tipo float, indica si el anime pertenece al género histórico.
     * **Horror**: de tipo float, indica si el anime pertenece al género de horror.
     * **Josei**: de tipo float, indica si el anime está dirigido a mujeres adultas.
-    * **Kids**: **: de tipo float, indica si el anime está dirigido a niños.
+    * **Kids**: de tipo float, indica si el anime está dirigido a niños.
     * **Magic**: de tipo float, indica si el anime pertenece al género de magia.
     * **Martial_Arts**: de tipo float, indica si el anime pertenece al género de artes marciales.
     * **Mecha**: de tipo float, indica si el anime pertenece al género de robots pilotados.
@@ -70,7 +70,8 @@ A continuación se describen las columnas del dataset:
 ## Tipos implementados
 
 ### Tipo Base - Anime
-Representa un anime concreto:
+Representa un anime concreto.
+
 **Propiedades**:
 
 * *anime_id*, de tipo *Integer*, consultable. Indica el id del anime.
@@ -106,7 +107,8 @@ Representa un anime concreto:
 * Checkers, tipo clase. Contiene el código de las restricciones.
 
 ## Tipo auxiliar - Studio
-Representa un estudio concreto:
+Representa un estudio concreto.
+
 **Propiedades**:
 
 * *id*, de tipo *Integer*, consultable.
@@ -128,3 +130,47 @@ Representa un estudio concreto:
 
 ### Tipo auxiliar - Checkers
 Contiene métodos para aplicar distintas restricciones.
+
+**Métodos estáticos:**
+
+* *void checkVacio(String s):* Comprueba que la String que se le pasa por parámetro no esté vacía ni sea nula.
+* *void checkEpisodios(Integer ep):* Comprueba que el número de episodios del anime sea estrictamente mayor que cero.
+* *void checkEstreno(LocalDate fecha):* Comprueba que la fecha de estreno no sea posterior a la fecha actual.
+* *void checkId(Integer id):* Comprueba que el id especificado por parámetro no es negativo.
+* *void checkGenero(String genero):* Comprueba si el género especificado por parámetro pertenece a los géneros que contiene el dataset. Si el género no es correcto, lanzará una excepción indicando los géneros presentes en el dataset.
+
+## Factoría - FactoriaPartidas
+
+Clase de factoría para construir objetos de tipo Animes.
+
+* *Animes leerAnimes(String fichero)*: Crea un objeto tipo Animes a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro.
+
+## Tipo Contenedor - Animes
+
+Clase contenedora de los objetos de tipo Anime.
+
+**Propiedades:**
+
+* *animes*, de tipo *List<Anime>*, consultable. Lista de animes.
+
+**Constructores:**
+
+* C1: Constructor por defecto. Crea un objeto de tipo Animes sin ningún anime almacenado.
+* C2: Constructor con un parámetro tipo *Collection<Anime>*. Crea un objeto de tipo Animes con los animes incluidos en la colección dada como parámetro.
+
+**Criterio de igualdad:** Dos Animes son iguales si lo son sus propiedades animes.
+
+**Otras operaciones:**
+
+* *Integer getNumeroAnimes():* Devuelve el número de animes que hay en el tipo contenedor.
+* *void agregarAnime(Anime a):* Agrega un anime al tipo contenedor.
+* *void agregarAnimes(Collection<Anime> as):* Agrega una colección de animes al tipo contenedor.
+* *void eliminarAnime(Anime a):* Elimina un anime del tipo contenedor.
+* *void eliminarAnime(int i):* Elimina el anime del tipo contenedor al que corresponde su índice.
+
+* *Boolean existeAnimeValoraciónMayorA(Double valoracion):* Función que dada una valoración devuelve un booleano que indica si existen animes con valoración estrictamente mayor a esta.
+* *Double mediaValoracionAnimes():* Devuelve la media de las valoraciones de los animes que se encuentran en el tipo contenedor.
+* *List<Anime> getAnimesGenero(String genero):* Obtiene la lista de animes que pertenecen al género indicado por parámetro.
+* *Map<Source,List<Anime>> getAnimesPorOrigen():* Clasifica los animes por su origen y los almacena en un diccionario.
+* *Map<Studio,Integer> getNumeroAnimesPorEstudio():* Cuenta los animes que pertenecen a cada estudio.
+
