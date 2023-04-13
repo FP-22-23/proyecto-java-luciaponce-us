@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 import fp.common.Source;
 import fp.common.Studio;
+import fp.utiles.Checkers;
 
 public class AnimesImpl implements Animes{
 	
@@ -103,13 +104,7 @@ public class AnimesImpl implements Animes{
 				.getAsDouble();
 	}
 	
-	
-	
 	public List<Anime> getAnimesGenero(String genero){
-		List<String> gs = new ArrayList<String>(Arrays.asList("Action","Adventure","Cars","Comedy","Dementia","Demons","Drama","Ecchi","Fantasy","Game",
-				"Harem","Historical","Horror","Josei","Kids","Magic","Martial_Arts","Mecha","Military","Music","Mystery","Parody","Police","Psychological",
-				"Romance","Samurai","School","Sci-Fi","Seinen","Shoujo","Shoujo_Ai","Shounen","Shounen_Ai","Slice_of_Life","Space","Sports","Super_Power",
-				"Supernatural","Thriller","Vampire"));
 		/*if (gs.contains(genero)) {
 			List<Anime> res = new ArrayList<Anime>();
 			for (Anime a : animes) {
@@ -121,14 +116,11 @@ public class AnimesImpl implements Animes{
 		}else {
 			throw new IllegalArgumentException("El género debe ser uno de los siguientes:"+gs);
 		}*/
-		if (gs.contains(genero)){
-			return animes.stream()
-					.filter(x -> x.getGenero().contains(genero))
-					.collect(Collectors.toList());
-		}else {
-			throw new IllegalArgumentException("El género debe ser uno de los siguientes:"+gs);
-		}
-		
+		Checkers.checkGenero(genero);
+		return animes.stream()
+				.filter(x -> x.getGenero().contains(genero))
+				.collect(Collectors.toList());
+	
 	}
 	
 	public Map<Source,List<Anime>> getAnimesPorOrigen(){

@@ -1,9 +1,16 @@
 package fp.utiles;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Checkers {
 	
+	/**
+	 * Comprueba que la String que se le pasa por parámetro no esté vacía ni sea nula
+	 * @param s String a comprobar
+	 */
 	public static void checkVacio(String s) {
 		
 		if(s==null) {
@@ -17,6 +24,10 @@ public class Checkers {
 		}
 	}
 	
+	/**
+	 * Comprueba que el número de episodios del anime sea estrictamente mayor que cero
+	 * @param ep Número de episodios a comprobar
+	 */
 	public static void checkEpisodios(Integer ep) {
 		if (ep<=0) {
 			throw new IllegalArgumentException(
@@ -24,6 +35,10 @@ public class Checkers {
 		}
 	}
 	
+	/**
+	 * Comprueba que la fecha de estreno no sea posterior a la fecha actual
+	 * @param fecha Fecha de estreno a comprobar
+	 */
 	public static void checkEstreno(LocalDate fecha) {
 		LocalDate hoy = LocalDate.now();
 		if (fecha.isAfter(hoy)) {
@@ -32,10 +47,28 @@ public class Checkers {
 		}
 	}
 	
+	/**
+	 * Comprueba que el id especificado por parámetro no es negativo
+	 * @param id Id a comprobar
+	 */
 	public static void checkId(Integer id) {
 		if (id<0) {
 			throw new IllegalArgumentException(
 					"El id debe ser un número positivo o 0");
+		}
+	}
+	
+	/**
+	 * Comprueba si el género especificado por parámetro pertenece a los géneros que contiene el dataset
+	 * @param genero String género a comprobar
+	 */
+	public static void checkGenero(String genero) {
+		List<String> gs = new ArrayList<String>(Arrays.asList("Action","Adventure","Cars","Comedy","Dementia","Demons","Drama","Ecchi","Fantasy","Game",
+				"Harem","Historical","Horror","Josei","Kids","Magic","Martial_Arts","Mecha","Military","Music","Mystery","Parody","Police","Psychological",
+				"Romance","Samurai","School","Sci-Fi","Seinen","Shoujo","Shoujo_Ai","Shounen","Shounen_Ai","Slice_of_Life","Space","Sports","Super_Power",
+				"Supernatural","Thriller","Vampire"));
+		if (!gs.contains(genero)) {
+			throw new IllegalArgumentException("El género debe ser uno de los siguientes:"+gs);
 		}
 	}
 
