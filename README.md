@@ -167,7 +167,6 @@ Clase contenedora de los objetos de tipo Anime.
 * *void agregarAnimes(Collection<Anime> as):* Agrega una colección de animes al tipo contenedor.
 * *void eliminarAnime(Anime a):* Elimina un anime del tipo contenedor.
 * *void eliminarAnime(int i):* Elimina el anime del tipo contenedor al que corresponde su índice.
-
 * *Boolean existeAnimeValoraciónMayorA(Double valoracion):* Función que dada una valoración devuelve un booleano que indica si existen animes con valoración estrictamente mayor a esta.
 * *Double mediaValoracionAnimes():* Devuelve la media de las valoraciones de los animes que se encuentran en el tipo contenedor.
 * *List<Anime> getAnimesGenero(String genero):* Obtiene la lista de animes que pertenecen al género indicado por parámetro.
