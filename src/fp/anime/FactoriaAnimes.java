@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,15 +18,15 @@ import fp.common.Studio;
 
 public class FactoriaAnimes {
 	
-	public static Animes leerAnimes(String fichero) {
-		Animes res = null;
+	public static AnimesImpl leerAnimes(String fichero) {
+		AnimesImpl res = null;
 		try {
 			List<Anime>  animes=Files.lines(Paths.get(fichero))
 					.skip(1)
 					.map(FactoriaAnimes::parsearAnime)
 					.collect(Collectors.toList());
 			
-			res=new Animes(animes);
+			res=new AnimesImpl(animes);
 			} catch(IOException e) {
 			System.out.println("Fichero no encontrado: "+fichero);
 			e.printStackTrace();
@@ -153,7 +154,9 @@ public class FactoriaAnimes {
 			String parsed_fecha = d+"/"+mes+"/"+y;
 			LocalDate res = LocalDate.parse(parsed_fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 			return res;
-		}
+	
+	}
+		
 	
 	private static Set<String> parseaGenero(List<String> generos){
 		int i = 0;
