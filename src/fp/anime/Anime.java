@@ -1,6 +1,6 @@
 package fp.anime;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 import fp.common.Source;
@@ -15,7 +15,7 @@ public class Anime implements Comparable<Anime>{
 	private String nombre;
 	private Integer episodios;
 	private Source origen;
-	private LocalDate estreno;
+	private LocalDateTime estreno;
 	private Double valoracion;
 	private Integer seguidores;
 	private String sinopsis;
@@ -37,7 +37,7 @@ public class Anime implements Comparable<Anime>{
 	 * @param genero
 	 * @param estudio
 	 */
-	public Anime(Integer anime_id, String nombre, Integer episodios, Source origen, LocalDate estreno,
+	public Anime(Integer anime_id, String nombre, Integer episodios, Source origen, LocalDateTime estreno,
 			Double valoracion, Integer seguidores, String sinopsis, Set<String> genero, Studio estudio) {
 		
 		this.anime_id = anime_id;
@@ -58,7 +58,7 @@ public class Anime implements Comparable<Anime>{
 		Checkers.checkEstreno(estreno);
 	}
 
-	public Anime(Integer anime_id, String nombre, Source origen, LocalDate estreno,
+	public Anime(Integer anime_id, String nombre, Source origen, LocalDateTime estreno,
 			String sinopsis, Set<String> genero, Studio estudio) {
 		
 		this(anime_id,nombre,1,origen,estreno,0.0,0,sinopsis,genero,estudio);
@@ -113,7 +113,7 @@ public class Anime implements Comparable<Anime>{
 		return origen;
 	}
 
-	public LocalDate getEstreno() {
+	public LocalDateTime getEstreno() {
 		return estreno;
 	}
 
@@ -135,13 +135,17 @@ public class Anime implements Comparable<Anime>{
 		return (getSeguidores()/1000)*getValoracion();
 	}
 	
+	public Boolean getOriginal() {
+		return getOrigen()==Source.ORIGINAL;
+	}
+	
 	// Representación como cadena
 	
 	public String toString() {
 		return "Anime [anime_id=" + anime_id + ", nombre=" + nombre + ", episodios=" + episodios + ", origen=" + origen
 				+ ", estreno=" + estreno + ", valoracion=" + valoracion + ", seguidores=" + seguidores + ", sinopsis="
 				+ sinopsis + ", genero=" + genero + ", estudio=" + estudio.toString() + ", getFormatoCorto()=" + getFormatoCorto()
-				+ ", getPopularidad()=" + getPopularidad() + "]";
+				+ ", getPopularidad()=" + getPopularidad() + ", getOriginal() = " + getOriginal() + "]";
 	}
 
 	// Criterio de igualdad

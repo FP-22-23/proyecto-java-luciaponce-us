@@ -5,13 +5,13 @@ import java.util.Map;
 
 import fp.anime.Anime;
 import fp.anime.AnimesImpl;
-import fp.anime.FactoriaAnimesImpl;
+import fp.anime.FactoriaAnimes;
 import fp.common.Source;
 import fp.common.Studio;
 
 public class TestAnimes {
 	public static void main(String[] args) {
-		AnimesImpl animes = FactoriaAnimesImpl.leerAnimes("./data/animes.csv");
+		AnimesImpl animes = FactoriaAnimes.leerAnimes("./data/animes.csv");
 		
 		System.out.println("\ntestGetNumeroAnimes");
 		separador();

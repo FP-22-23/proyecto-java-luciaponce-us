@@ -78,17 +78,23 @@ Representa un anime concreto.
 * *nombre*, de tipo *String*, consultable. Contiene el nombre del anime.
 * *episodios*, de tipo *Integer*, consultable y modificable. Indica el número de episodios que tiene el anime.
 * *origen*, de tipo *Source*, consultable. Indica de dónde se inspiró el anime. Puede tomar los valores BOOK, CARD_GAME, MANGA, GAME, NOVEL, MUSIC, ORIGINAL, RADIO, OTHER.
-* *estreno*, de tipo *LocalDate*, consultable. Es la fecha de estreno del anime.
+* *estreno*, de tipo *LocalDateTime*, consultable. Es la fecha de estreno del anime.
 * *valoracion*, de tipo *Double*, consultable y modificable. Se trata de una valoración media de los espectadores con valores del 0.0 al 10.0.
 * *seguidores*, de tipo *Integer*, consultable y modificable. Son los seguidores que tiene el anime.
 * *sinopsis*, de tipo *String*, consultable. Se trata de un breve resumen sobre el argumento del anime.
 * *genero*, de tipo *Set*<*String*>, consultable. Es una lista formada por el/los género(s) al/a los que pertenece el anime.
 * *estudio*, de tipo *Studio*, consultable y modificable. Indica el estudio al que pertenece el anime. Contiene el id y el nombre del estudio.
 
+**Propiedades derivadas**:
+
+* *getFormatoCorto()*, de tipo *String*, consultable. Obtiene una cadena con el siguiente formato: nombre ("año de estreno") --> ["nº de episodios" episodios]
+* *getPopularidad()*, de tipo *Double*, consultable. Se calcula según la siguiente fórmula: (seguidores/1000)*valoracion
+* *getOriginal()*, de tipo *Boolean*, consultable. Indica si el anime es original (true) o proviene de otra fuente (false).
+
 **Constructores**:
 
 * C1: Tiene un parámetro por cada propiedad básica del tipo.
-* C2: Crea un objeto de tipo ```Anime``` a partir de los siguientes parámetros: ```Integer anime_id, String nombre, Source origen, LocalDate estreno, String sinopsis, Set<String> genero, Studio estudio```. Además, tendrá 1 episodio, 0.0 de valoración y 0 seguidores.
+* C2: Crea un objeto de tipo ```Anime``` a partir de los siguientes parámetros: ```Integer anime_id, String nombre, Source origen, LocalDateTime estreno, String sinopsis, Set<String> genero, Studio estudio```. Además, tendrá 1 episodio, 0.0 de valoración y 0 seguidores.
 
 **Restricciones**:
 
@@ -135,7 +141,7 @@ Contiene métodos para aplicar distintas restricciones.
 
 * *void checkVacio(String s):* Comprueba que la String que se le pasa por parámetro no esté vacía ni sea nula.
 * *void checkEpisodios(Integer ep):* Comprueba que el número de episodios del anime sea estrictamente mayor que cero.
-* *void checkEstreno(LocalDate fecha):* Comprueba que la fecha de estreno no sea posterior a la fecha actual.
+* *void checkEstreno(LocalDateTime fecha):* Comprueba que la fecha de estreno no sea posterior a la fecha actual.
 * *void checkId(Integer id):* Comprueba que el id especificado por parámetro no es negativo.
 * *void checkGenero(String genero):* Comprueba si el género especificado por parámetro pertenece a los géneros que contiene el dataset. Si el género no es correcto, lanzará una excepción indicando los géneros presentes en el dataset.
 

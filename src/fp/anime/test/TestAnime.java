@@ -1,6 +1,6 @@
 package fp.anime.test;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +10,7 @@ import fp.common.Studio;
 
 public class TestAnime {
 	
-	public static void testConstructor1(Integer anime_id, String nombre, Integer episodios, Source origen, LocalDate estreno,
+	public static void testConstructor1(Integer anime_id, String nombre, Integer episodios, Source origen, LocalDateTime estreno,
 			Double valoracion, Integer seguidores, String sinopsis, Set<String> genero, Studio estudio) {
 		try {
 			Anime a = new Anime(anime_id,nombre,episodios,origen,estreno,valoracion,seguidores,sinopsis,genero,estudio);
@@ -21,7 +21,7 @@ public class TestAnime {
 		}
 	}
 	
-	public static void testConstructor2(Integer anime_id, String nombre, Source origen, LocalDate estreno, 
+	public static void testConstructor2(Integer anime_id, String nombre, Source origen, LocalDateTime estreno, 
 			String sinopsis, Set<String> genero, Studio estudio) {
 		try {
 			Anime a = new Anime(anime_id,nombre,origen,estreno,sinopsis,genero,estudio);
@@ -52,58 +52,58 @@ public class TestAnime {
 		Integer i = 1;
 		System.out.println("-------------------");
 		System.out.println("Constructor 1 - Caso prueba " + i);
-		testConstructor1(0,"Bungou Stray Dogs",12,Source.MANGA,LocalDate.of(2022, 11, 12),9.5,12300,"Resumen",gbungou,bones);
+		testConstructor1(0,"Bungou Stray Dogs",12,Source.MANGA,LocalDateTime.of(2022, 11, 12,0,0),9.5,12300,"Resumen",gbungou,bones);
 		
 		// Caso de prueba episodios<=0
 		
 		i++;
 		System.out.println("-------------------");
 		System.out.println("Constructor 1 - Caso prueba " + i);
-		testConstructor1(0,"Bungou Stray Dogs",0,Source.MANGA,LocalDate.of(2022, 11, 12),9.5,12300,"Resumen",gbungou,bones);
+		testConstructor1(0,"Bungou Stray Dogs",0,Source.MANGA,LocalDateTime.of(2022, 11, 12,0,0),9.5,12300,"Resumen",gbungou,bones);
 		
 		// Caso de prueba nombre="    "
 		
 		i++;
 		System.out.println("-------------------");
 		System.out.println("Constructor 1 - Caso prueba " + i);
-		testConstructor1(0,"    ",0,Source.MANGA,LocalDate.of(2022, 11, 12),9.5,12300,"Resumen",gbungou,bones);
+		testConstructor1(0,"    ",0,Source.MANGA,LocalDateTime.of(2022, 11, 12,0,0),9.5,12300,"Resumen",gbungou,bones);
 		
 		// Caso de prueba nombre=null
 		
 		i++;
 		System.out.println("-------------------");
 		System.out.println("Constructor 1 - Caso prueba " + i);
-		testConstructor1(0,null,0,Source.MANGA,LocalDate.of(2022, 11, 12),9.5,12300,"Resumen",gbungou,bones);
+		testConstructor1(0,null,0,Source.MANGA,LocalDateTime.of(2022, 11, 12,0,0),9.5,12300,"Resumen",gbungou,bones);
 		
 		// Caso de prueba estreno posterior a fecha actual
 		
 		i++;
 		System.out.println("-------------------");
 		System.out.println("Constructor 1 - Caso prueba " + i);
-		testConstructor1(0,"Bungou",0,Source.MANGA,LocalDate.of(2023, 11, 12),9.5,12300,"Resumen",gbungou,bones);
+		testConstructor1(0,"Bungou",0,Source.MANGA,LocalDateTime.of(2023, 11, 12,0,0),9.5,12300,"Resumen",gbungou,bones);
 
 		i = 1;
 		System.out.println("-------------------");
 		System.out.println("Constructor 2 - Caso prueba " + i);
-		testConstructor2(0,"Bungou Stray Dogs",Source.MANGA,LocalDate.of(2022, 11, 12),"Resumen",gbungou,bones);
+		testConstructor2(0,"Bungou Stray Dogs",Source.MANGA,LocalDateTime.of(2022, 11, 12,0,0),"Resumen",gbungou,bones);
 		
 		// Caso de prueba nombre = "     "
 		i++;
 		System.out.println("-------------------");
 		System.out.println("Constructor 2 - Caso prueba " + i);
-		testConstructor2(0,"     ",Source.MANGA,LocalDate.of(2022, 11, 12),"Resumen",gbungou,bones);
+		testConstructor2(0,"     ",Source.MANGA,LocalDateTime.of(2022, 11, 12,0,0),"Resumen",gbungou,bones);
 		
 		// Caso de prueba nombre = null
 		i++;
 		System.out.println("-------------------");
 		System.out.println("Constructor 2 - Caso prueba " + i);
-		testConstructor2(0,null,Source.MANGA,LocalDate.of(2022, 11, 12),"Resumen",gbungou,bones);
+		testConstructor2(0,null,Source.MANGA,LocalDateTime.of(2022, 11, 12,0,0),"Resumen",gbungou,bones);
 		
 		// Caso de prueba estreno posterior a la fecha actual
 		i++;
 		System.out.println("-------------------");
 		System.out.println("Constructor 2 - Caso prueba " + i);
-		testConstructor2(0,"Bungou Stray Dogs",Source.MANGA,LocalDate.of(2023, 11, 12),"Resumen",gbungou,bones);
+		testConstructor2(0,"Bungou Stray Dogs",Source.MANGA,LocalDateTime.of(2023, 11, 12,0,0),"Resumen",gbungou,bones);
 		System.out.println("-------------------------------");
 		
 		// Pruebas con tipo Studio
@@ -134,9 +134,9 @@ public class TestAnime {
 		
 		// Prueba de métodos de Anime
 		
-		Anime a = new Anime(0,"Bungou Stray Dogs",12,Source.MANGA,LocalDate.of(2022, 11, 12),9.5,12300,"Resumen",gbungou,bones);
-		Anime b = new Anime(0,"Bungou Stray Dogs",2,Source.MANGA,LocalDate.of(2022, 11, 12),8.5,2300,"Sinopsis",gbungou,bones);
-		Anime c = new Anime(1,"Bungou Stray Dogs Película",1,Source.MANGA,LocalDate.of(2022, 11, 12),8.5,2300,"Sinopsis",gbungou,bones);
+		Anime a = new Anime(0,"Bungou Stray Dogs",12,Source.MANGA,LocalDateTime.of(2022, 11, 12,00,00),9.5,12300,"Resumen",gbungou,bones);
+		Anime b = new Anime(0,"Bungou Stray Dogs",2,Source.MANGA,LocalDateTime.of(2022, 11, 12,00,00),8.5,2300,"Sinopsis",gbungou,bones);
+		Anime c = new Anime(1,"Bungou Stray Dogs Película",1,Source.MANGA,LocalDateTime.of(2022, 11, 12,00,00),8.5,2300,"Sinopsis",gbungou,bones);
 		
 		System.out.println("\n----Pruebas de métodos del tipo Anime----\n");
 		System.out.println("Representación como cadena:\n" + a.toString() +"\n");
@@ -150,9 +150,5 @@ public class TestAnime {
 		}else {
 			System.out.println(a.getNombre() + " va en la misma posición que " + c.getNombre());
 		}
-		
-		
-		
 	}
-
 }

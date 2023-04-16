@@ -1,6 +1,6 @@
 package fp.utiles;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,11 +37,11 @@ public class Checkers {
 	
 	/**
 	 * Comprueba que la fecha de estreno no sea posterior a la fecha actual
-	 * @param fecha Fecha de estreno a comprobar
+	 * @param estreno Fecha de estreno a comprobar
 	 */
-	public static void checkEstreno(LocalDate fecha) {
-		LocalDate hoy = LocalDate.now();
-		if (fecha.isAfter(hoy)) {
+	public static void checkEstreno(LocalDateTime estreno) {
+		LocalDateTime hoy = LocalDateTime.now();
+		if (estreno.isAfter(hoy)) {
 			throw new IllegalArgumentException(
 					"La fecha de estreno no puede ser posterior a hoy");
 		}
