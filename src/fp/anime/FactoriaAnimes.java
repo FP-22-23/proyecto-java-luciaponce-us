@@ -18,19 +18,35 @@ import fp.common.Studio;
 public class FactoriaAnimes{
 	
 	/**
-	 * Lee el fichero cuya ruta se le pasa por parámetro y lo convierte en un objeto tipo Animes.
+	 * Lee el fichero cuya ruta se le pasa por parámetro y lo convierte en un objeto tipo AnimesStreamImpl.
 	 * @param fichero Ruta del fichero a leer
 	 * @return Objeto tipo Animes
 	 */
-	public static AnimesImpl leerAnimes(String fichero) {
-		AnimesImpl res = null;
+	public static AnimesStreamImpl leerAnimes(String fichero) {
+		AnimesStreamImpl res = null;
 		try {
 			List<Anime>  animes=Files.lines(Paths.get(fichero))
 					.skip(1)
 					.map(FactoriaAnimes::parsearAnime)
 					.collect(Collectors.toList());
 			
-			res=new AnimesImpl(animes);
+			res=new AnimesStreamImpl(animes);
+			} catch(IOException e) {
+			System.out.println("Fichero no encontrado: "+fichero);
+			e.printStackTrace();
+		}
+	return res;
+	}
+	
+	public static AnimesBuclesImpl leerAnimesB(String fichero) {
+		AnimesBuclesImpl res = null;
+		try {
+			List<Anime>  animes=Files.lines(Paths.get(fichero))
+					.skip(1)
+					.map(FactoriaAnimes::parsearAnime)
+					.collect(Collectors.toList());
+			
+			res=new AnimesBuclesImpl(animes);
 			} catch(IOException e) {
 			System.out.println("Fichero no encontrado: "+fichero);
 			e.printStackTrace();
@@ -172,8 +188,8 @@ public class FactoriaAnimes{
 		        mes = "Invalid month format";
 		        break;
 		    }
-			String parsed_fecha = d+"/"+mes+"/"+y;
-			LocalDateTime res = LocalDateTime.parse(parsed_fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+			String parsed_fecha = d+"/"+mes+"/"+y+" "+"00:00";
+			LocalDateTime res = LocalDateTime.parse(parsed_fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
 			return res;
 	
 	}

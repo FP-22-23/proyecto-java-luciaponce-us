@@ -11,17 +11,17 @@ import fp.common.Source;
 import fp.common.Studio;
 import fp.utiles.Checkers;
 
-public class AnimesImpl implements Animes{
+public class AnimesStreamImpl implements Animes{
 	
 	// Atributos
-	private List<Anime> animes;
+	List<Anime> animes;
 	
 	// Constructores
-	public AnimesImpl() {
+	public AnimesStreamImpl() {
 		animes = new ArrayList<Anime>();
 	}
 	
-	public AnimesImpl(Collection<Anime> animes) {
+	public AnimesStreamImpl(Collection<Anime> animes) {
 		this.animes = new ArrayList<Anime>(animes);
 	}
 	
@@ -40,7 +40,7 @@ public class AnimesImpl implements Animes{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		AnimesImpl other = (AnimesImpl) obj;
+		AnimesStreamImpl other = (AnimesStreamImpl) obj;
 		return Objects.equals(animes, other.animes);
 	}
 	
