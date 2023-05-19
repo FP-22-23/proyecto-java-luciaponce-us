@@ -64,15 +64,17 @@ public class TestAnimesStream {
 		// testTopNAnimesMasPopularesPorEstudio(Integer n)
 		System.out.println("\ntestTopNAnimesMasPopularesPorEstudio");
 		separador();
+		testTopNAnimesMasPopularesPorEstudio(animes,3);
 		// testEstudioMayorPopularidadAcumulada()
+		System.out.println("\ntestEstudioMayorPopularidadAcumulada");
+		separador();
+		testEstudioMayorPopularidadAcumulada(animes);
 		
 		
 		/*System.out.println("\ntestGetAnimesPorOrigen");
 		separador();
 		testGetAnimesPorOrigen(animes);*/
-		
 	
-		
 	}
 	
 	
@@ -168,6 +170,7 @@ public class TestAnimesStream {
 				System.out.println(e+": ");
 				for (Anime a:d.get(e)) {
 					System.out.println(i+". "+a.getFormatoCorto());
+					i++;
 				}
 			}
 			
@@ -176,8 +179,13 @@ public class TestAnimesStream {
 		}
 	}
 	
-	
-	
+	private static void testEstudioMayorPopularidadAcumulada(AnimesStreamImpl animes) {
+		try {
+			System.out.println("El estudio con mayor popularidad acumulada es "+animes.estudioMayorPopularidadAcumulada().nombre());
+		}catch(Exception e) {
+			System.err.println("Capturada excepción inesperada: "+e.getMessage());
+		}
+	}
 	
 	/*private static void testGetAnimesPorOrigen(AnimesStreamImpl animes) {
 	System.out.println("Animes clasificados según su origen:");
