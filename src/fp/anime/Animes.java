@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import fp.common.Source;
 import fp.common.Studio;
 
 public interface Animes {
@@ -50,11 +49,6 @@ public interface Animes {
 	 * @return Lista de objetos tipo Anime cuyo género es el que se pasa por parámetro.
 	 */
 	public List<Anime> getAnimesGenero(String genero);
-	/**
-	 * Función que clasifica los animes por su origen y los almacena en un diccionario.
-	 * @return Diccionario que agrupa los animes según su origen.
-	 */
-	public Map<Source,List<Anime>> getAnimesPorOrigen();
 	/**
 	 * Función que cuenta los animes que pertenecen a cada estudio.
 	 * @return Diccionario que indica el número de animes que hay por estudio.

@@ -85,11 +85,13 @@ public class AnimesStreamImpl implements Animes{
 	
 	// Métodos con tratamientos secuenciales
 	
+	// Existe
 	public Boolean existeAnimeValoraciónMayorA(Double valoracion) {
 		return animes.stream()
 				.anyMatch(x -> x.getValoracion()>valoracion);
 	}
 	
+	// Media
 	public Double mediaValoracionAnimes() {
 		return animes.stream()
 				.mapToDouble(x->x.getValoracion())
@@ -97,6 +99,7 @@ public class AnimesStreamImpl implements Animes{
 				.getAsDouble();
 	}
 	
+	// Seleccion con filtrado
 	public List<Anime> getAnimesGenero(String genero){
 		Checkers.checkGenero(genero);
 		return animes.stream()
@@ -127,10 +130,11 @@ public class AnimesStreamImpl implements Animes{
 				.collect(Collectors.toList());
 	}
 	
-	public Map<Source,List<Anime>> getAnimesPorOrigen(){
+	// Uno de los métodos (4) implementados en la entrega 2, pero con streams.
+	/*public Map<Source,List<Anime>> getAnimesPorOrigen(){
 		return animes.stream()
 				.collect(Collectors.groupingBy(Anime::getOrigen,Collectors.toList()));
-	}
+	}*/
 	
 	// Uno de los métodos (5) implementados en la entrega 2, pero con streams.
 	
@@ -182,7 +186,7 @@ public class AnimesStreamImpl implements Animes{
 						);
 		
 	}
-	
+	// funcion auxiliar
 	private List<Anime> topNAnimesMasPopulares(List<Anime> l, Integer n){
 		Comparator<Anime> cp = Comparator.comparing(Anime::getPopularidad).reversed();
 		return l.stream()
@@ -201,6 +205,7 @@ public class AnimesStreamImpl implements Animes{
 				.getKey();
 	}
 	
+	// funcion auxiliar
 	private Map<Studio,Double> popularidadAcumuladaPorEstudio(){
 		return animes.stream()
 				.collect(Collectors.groupingBy(

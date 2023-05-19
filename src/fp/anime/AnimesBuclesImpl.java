@@ -105,7 +105,10 @@ public class AnimesBuclesImpl implements Animes{
 		}
 		return res;
 	}
-	
+	/**
+	 * Función que clasifica los animes por su origen y los almacena en un diccionario.
+	 * @return Diccionario que agrupa los animes según su origen.
+	 */
 	public Map<Source,List<Anime>> getAnimesPorOrigen(){
 		Map<Source,List<Anime>> res = new HashMap<Source,List<Anime>>();
 		for (Anime a : animes) {
