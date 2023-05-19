@@ -150,6 +150,7 @@ Contiene métodos para aplicar distintas restricciones.
 Clase de factoría para construir objetos de tipo Animes.
 
 * *AnimesStreamImpl leerAnimes(String fichero)*: Crea un objeto tipo AnimesStreamImpl a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro.
+* *AnimesStreamImpl leerAnimesStream(String fichero)*: Crea un objeto tipo AnimesStreamImpl a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro utilizando el constructor de la clase contenedora *AnimesStreamImpl(Stream<Anime> animes)*.
 * *AnimesBuclesImpl leerAnimesB(String fichero)*: Crea un objeto tipo AnimesBuclesImpl a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro.
 
 ## Tipo Contenedor (Bucles) - AnimesBuclesImpl

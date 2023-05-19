@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import fp.common.Source;
 import fp.common.Studio;
@@ -29,6 +30,21 @@ public class FactoriaAnimes{
 					.skip(1)
 					.map(FactoriaAnimes::parsearAnime)
 					.collect(Collectors.toList());
+			
+			res=new AnimesStreamImpl(animes);
+			} catch(IOException e) {
+			System.out.println("Fichero no encontrado: "+fichero);
+			e.printStackTrace();
+		}
+	return res;
+	}
+	
+	public static AnimesStreamImpl leerAnimesStream(String fichero) {
+		AnimesStreamImpl res = null;
+		try {
+			Stream<Anime>  animes=Files.lines(Paths.get(fichero))
+					.skip(1)
+					.map(FactoriaAnimes::parsearAnime);
 			
 			res=new AnimesStreamImpl(animes);
 			} catch(IOException e) {
