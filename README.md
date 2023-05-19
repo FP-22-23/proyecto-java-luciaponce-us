@@ -109,7 +109,7 @@ Representa un anime concreto.
 **Tipos auxiliares**:
 
 * Source, tipo enumerado. Puede tomar los valores BOOK, CARD_GAME, MANGA, GAME, NOVEL, MUSIC, ORIGINAL, RADIO, OTHER.
-* Studio, tipo clase. Se describe más abajo.
+* Studio, tipo record. Se describe más abajo.
 * Checkers, tipo clase. Contiene el código de las restricciones.
 
 ## Tipo auxiliar - Studio
@@ -118,7 +118,7 @@ Representa un estudio concreto.
 **Propiedades**:
 
 * *id*, de tipo *Integer*, consultable.
-* *nombre*, de tipo *String*, consultable y modificable.
+* *nombre*, de tipo *String*, consultable.
 
 **Constructor**:
 * C1: Tiene un parámetro por cada propiedad básica del tipo.
@@ -149,11 +149,12 @@ Contiene métodos para aplicar distintas restricciones.
 
 Clase de factoría para construir objetos de tipo Animes.
 
-* *Animes leerAnimes(String fichero)*: Crea un objeto tipo Animes a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro.
+* *AnimesStreamImpl leerAnimes(String fichero)*: Crea un objeto tipo AnimesStreamImpl a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro.
+* *AnimesBuclesImpl leerAnimesB(String fichero)*: Crea un objeto tipo AnimesBuclesImpl a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro.
 
-## Tipo Contenedor - Animes
+## Tipo Contenedor (Bucles) - AnimesBuclesImpl
 
-Clase contenedora de los objetos de tipo Anime.
+Clase contenedora de los objetos de tipo Anime que resuelve distintos tratamientos secuenciales mediante bucles.
 
 **Propiedades:**
 
@@ -161,8 +162,8 @@ Clase contenedora de los objetos de tipo Anime.
 
 **Constructores:**
 
-* C1: Constructor por defecto. Crea un objeto de tipo Animes sin ningún anime almacenado.
-* C2: Constructor con un parámetro tipo *Collection<Anime>*. Crea un objeto de tipo Animes con los animes incluidos en la colección dada como parámetro.
+* C1: Constructor por defecto. Crea un objeto de tipo AnimesBuclesImpl sin ningún anime almacenado.
+* C2: Constructor con un parámetro tipo *Collection<Anime>*. Crea un objeto de tipo AnimesBuclesImpl con los animes incluidos en la colección dada como parámetro.
 
 **Criterio de igualdad:** Dos Animes son iguales si lo son sus propiedades animes.
 
@@ -179,3 +180,45 @@ Clase contenedora de los objetos de tipo Anime.
 * *Map<Source,List<Anime>> getAnimesPorOrigen():* Clasifica los animes por su origen y los almacena en un diccionario.
 * *Map<Studio,Integer> getNumeroAnimesPorEstudio():* Cuenta los animes que pertenecen a cada estudio.
 
+## Tipo Contenedor (Streams) - AnimesStreamImpl
+
+Clase contenedora de los objetos de tipo Anime que resuelve distintos tratamientos secuenciales mediante streams.
+
+**Propiedades:**
+
+* *animes*, de tipo *List<Anime>*, consultable. Lista de animes.
+
+**Constructores:**
+
+* C1: Constructor por defecto. Crea un objeto de tipo AnimesStreamImpl sin ningún anime almacenado.
+* C2: Constructor con un parámetro tipo *Collection<Anime>*. Crea un objeto de tipo AnimesStreamImpl con los animes incluidos en la colección dada como parámetro.
+* C3: Constructor con un parámetro tipo *Stream<Anime>*. Crea un objeto de tipo AnimesStreamImpl con los animes incluidos en el stream dado por parámetro.
+
+**Criterio de igualdad:** Dos Animes son iguales si lo son sus propiedades animes.
+
+**Otras operaciones:**
+
+* *Integer getNumeroAnimes():* Devuelve el número de animes que hay en el tipo contenedor.
+* *void agregarAnime(Anime a):* Agrega un anime al tipo contenedor.
+* *void agregarAnimes(Collection<Anime> as):* Agrega una colección de animes al tipo contenedor.
+* *void eliminarAnime(Anime a):* Elimina un anime del tipo contenedor.
+* *void eliminarAnime(int i):* Elimina el anime del tipo contenedor al que corresponde su índice.
+
+**Tratamientos secuenciales:**
+
+* *Boolean existeAnimeValoraciónMayorA(Double valoracion):* Función que dada una valoración devuelve un booleano que indica si existen animes con valoración estrictamente mayor a esta.
+* *Double mediaValoracionAnimes():* Devuelve la media de las valoraciones de los animes que se encuentran en el tipo contenedor.
+* *List<Anime> getAnimesGenero(String genero):* Obtiene la lista de animes que pertenecen al género indicado por parámetro.
+* *Anime animeMasPopularDelGenero(String genero):* Obtiene el anime más popular del género que se le da por parámetro.
+* *List<Anime> topNAnimesMasPopularesDelGenero(Integer n, String genero):* Devuelve los n animes más populares del género que se le especifica por parámetro.
+* *Map<Studio,Integer> getNumeroAnimesPorEstudio():* Cuenta los animes que pertenecen a cada estudio.
+* *Map<Source,Integer> calcularNumeroAnimesPorOrigen():* Calcula el número de animes que hay de cada origen.
+* *Map<String,Double> mayorValoracionObtenidaPorEstudio():* Devuelve un Map en el que las claves son los nombres de los estudios de anime y los valores son la máxima valoración obtenida.
+* *SortedMap<String,List<Anime>> topNAnimesMasPopularesPorEstudio(Integer n):* Devuelve un SortedMap cuyas claves son los nombres de los estudios y cuyos valores son los n animes más populares del estudio.
+    * *List<Anime> topNAnimesMasPopulares(List<Anime> l, Integer n):* Función auxiliar que selecciona los n animes más populares de una lista dada, devolviéndolos ordenados de mayor a menor popularidad en una lista.
+* *Studio estudioMayorPopularidadAcumulada():* Obtiene el estudio con mayor popularidad acumulada.
+    * *Map<Studio,Double> popularidadAcumuladaPorEstudio():* Función auxiliar que obtiene un diccionario cuyas claves son los estudios y cuyos valores son la suma de la popularidad de todos sus animes.
+
+**Tipos auxiliares**:
+
+* Checkers, tipo clase. Contiene el código de las restricciones. Se utiliza para comprobar los parámetros de género, pues el género especificado por parámetro debe estar contenido en una lista previamente definida.
